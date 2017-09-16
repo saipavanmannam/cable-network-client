@@ -1,3 +1,8 @@
-<p>
-  connection works!
-</p>
+{{connection.name}}
+<div>
+	<label>Name:</label><input [(ngModel)]="connection.name" placeholder="name"><br>
+	<label>Mobile:</label><input [(ngModel)]="connection.mobile" placeholder="mobile"><br>
+	<label>Email:</label><input [(ngModel)]="connection.email" placeholder="email"><br>
+	<button (click)="saveConnection()">Save</button>
+	
+</div>

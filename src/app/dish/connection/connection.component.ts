@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ConnectionService } from './connection.service';
+import { Connection } from '../connection';
 @Component({
   selector: 'dish-connection',
   templateUrl: './connection.component.html',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private connService: ConnectionService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
+  
+  connection: Connection = {
+  	name: 'saipavan',
+  	mobile: '',
+  	email: ''
+  };
+  saveConnection(): void{
+	//alert("Hello I am clicked");
+	console.log(this.connService.addConnection(this.connection));
+	//this.connService.addConnection(); 
+  };
 
 }
