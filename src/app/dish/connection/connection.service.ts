@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Connection } from '../connection';
 import { Http }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 
@@ -10,10 +11,12 @@ import 'rxjs/add/operator/map';
 export class ConnectionService {
 
   constructor(private http: Http) { }
-  addConnection(connection): any{
-	alert("In service Called");
+  connection: Connection=new Connection();
+  addConnection(connection): any {
+	
 	//{name: connection.name,mobile:connection.mobile,email:connection.email}
-	return this.http.post('http://localhost:8080/dish/add-connection',JSON.stringify(connection)).map(res => res.json().data);
+	return this.http.get('/dish/get-connection?connectionId=1').subscribe(data => data.json());
+	
   };
   
   private handleError(error: any): Promise<any> {

@@ -12,14 +12,10 @@ export class ConnectionComponent implements OnInit {
 
   ngOnInit() {  }
   
-  connection: Connection = {
-  	name: 'saipavan',
-  	mobile: '',
-  	email: ''
-  };
+  connection: Connection = {name:'',mobile:'',email:''};
   saveConnection(): void{
 	//alert("Hello I am clicked");
-	console.log(this.connService.addConnection(this.connection));
+	this.connService.addConnection(this.connection);
 	//this.connService.addConnection(); 
   };
 
