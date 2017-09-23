@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectionService } from './connection.service';
 import { Connection } from '../connection';
+import 'rxjs/add/operator/toPromise';
 @Component({
   selector: 'dish-connection',
   templateUrl: './connection.component.html',
@@ -8,15 +9,20 @@ import { Connection } from '../connection';
 })
 export class ConnectionComponent implements OnInit {
 
-  constructor(private connService: ConnectionService) { }
+  constructor(private connService: ConnectionService,
+  				private connection: Connection) { }
 
   ngOnInit() {  }
   
-  connection: Connection = {name:'',mobile:'',email:''};
-  saveConnection(): void{
+  //connection: Connection = {name:'',mobile:'',email:''};
+  getConnection(): void{
 	//alert("Hello I am clicked");
-	this.connService.addConnection(this.connection);
+	this.connService.getConnection(this.connection.connectionId).toPromise().then(data=>this.connection=data.json());
 	//this.connService.addConnection(); 
   };
+  
+  saveConnection(): void{
+	  this.connService.saveConnection(this.connection).toPromise().then(data=>console.log(data._body)).catch(err=>alert(err));
+  }
 
 }

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ConnectionComponent } from './dish/connection/connection.component';
 import { ConnectionService } from './dish/connection/connection.service';
 import { DashBoardComponent } from './dash-board/dash-board.component';
+import { Connection } from './dish/connection';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 	])
 	
   ],
-  providers: [ConnectionService],
+  providers: [ConnectionService,Connection],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

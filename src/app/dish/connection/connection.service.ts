@@ -11,11 +11,16 @@ import 'rxjs/add/operator/map';
 export class ConnectionService {
 
   constructor(private http: Http) { }
-  connection: Connection=new Connection();
-  addConnection(connection): any {
+  getConnection(connectionId): any {
 	
 	//{name: connection.name,mobile:connection.mobile,email:connection.email}
-	return this.http.get('/dish/get-connection?connectionId=1').subscribe(data => data.json());
+	return this.http.get('/dish/get-connection?connectionId='+connectionId);
+	
+  };
+  
+  saveConnection(dishConnection): any {
+	//{name: connection.name,mobile:connection.mobile,email:connection.email}
+	return this.http.post('/dish/add-connection',dishConnection);
 	
   };
   
