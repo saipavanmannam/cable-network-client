@@ -14,11 +14,9 @@ export class ConnectionComponent implements OnInit {
 
   ngOnInit() {  }
   
-  //connection: Connection = {name:'',mobile:'',email:''};
   getConnection(): void{
 	//alert("Hello I am clicked");
 	this.connService.getConnection(this.connection.connectionId).toPromise().then(data=>this.connection=data.json());
-	//this.connService.addConnection(); 
   };
   
   saveConnection(): void{
