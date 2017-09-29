@@ -1,3 +1,4 @@
+import { TerritoryDetail } from './territory-detail';
 export class Connection {
     connectionId: string;
 	name: string;
