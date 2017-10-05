@@ -4,6 +4,7 @@ import { RouterModule }   from '@angular/router';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here -->
 import { HttpModule }    from '@angular/http';
 import { AppComponent } from './app.component';
+import { routes } from './app-router/app-router.module';
 
 
 import { ConnectionComponent } from './dish/connection/connection.component';
@@ -23,18 +24,7 @@ import { TerritoryComponent } from './dish/territory/territory.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-
-	RouterModule.forRoot([
-	  {
-		path: 'connection',
-		component: ConnectionComponent
-	  },
-	  {
-		path: '',
-		component: DashBoardComponent	  
-	  }
-	])
-	
+	routes
   ],
   providers: [ConnectionService,Connection],
   bootstrap: [AppComponent]

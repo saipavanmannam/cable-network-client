@@ -15,7 +15,6 @@ export class ConnectionComponent implements OnInit {
   ngOnInit() {  }
   
   getConnection(): void{
-	//alert("Hello I am clicked");
 	this.connService.getConnection(this.connection.connectionId).toPromise().then(data=>this.connection=data.json());
   };
   
