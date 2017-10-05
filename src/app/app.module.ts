@@ -10,12 +10,14 @@ import { ConnectionComponent } from './dish/connection/connection.component';
 import { ConnectionService } from './dish/connection/connection.service';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { Connection } from './dish/connection';
+import { TerritoryComponent } from './dish/territory/territory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnectionComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    TerritoryComponent
   ],
   imports: [
     BrowserModule,

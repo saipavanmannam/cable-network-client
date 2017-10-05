@@ -3,6 +3,10 @@
 	<label>Name:</label><input [(ngModel)]="connection.name" placeholder="name"><br>
 	<label>Mobile:</label><input [(ngModel)]="connection.mobile" placeholder="mobile"><br>
 	<label>Email:</label><input [(ngModel)]="connection.email" placeholder="email"><br>
+	<label>Address:</label><input [(ngModel)]="connection.address" placeholder="address"><br>
+	<label>Type:</label><select [(ngModel)]="connection.connectionType"><option value="M">Monthly</option><option value="Y">Yearly</option></select><br>
+	<label>Status:</label><select [(ngModel)]="connection.status"><option value="A">Active</option><option value="I">InActive</option></select><br>
+	<label>Initial Deposit:</label><input [(ngModel)]="connection.balance" placeholder="balance"><br>
 	<button (click)="saveConnection()">Save</button>
 	
 </div>
