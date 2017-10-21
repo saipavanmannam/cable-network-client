@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input } from '@angular/core';
 import { TerritoryDetail } from '../territory-detail';
 import { TerritoryService } from './territory.service';
 
@@ -9,16 +9,15 @@ import { TerritoryService } from './territory.service';
 })
 export class TerritoryComponent implements OnInit {
 
-  constructor(private territoryService: TerritoryService,
-  				private territoryDetail: TerritoryDetail) { }
+  constructor(private territoryService: TerritoryService,private territoryDetail: TerritoryDetail) { }
 
   ngOnInit() {  }
   
   getTerritoryDetail(): void{
-	//this.territoryService.getTerritoryDetail(this.territoryDetail.territoryId).toPromise().then(data=>this.territoryDetail=data.json());
+	this.territoryService.getTerritoryDetail(this.territoryDetail.territoryId).toPromise().then(data=>this.territoryDetail=data.json());
   };
   
   saveTerritoryDetail(): void{
-	  //this.territoryService.saveTerritoryDetail(this.territoryDetail).toPromise().then(data=>console.log(data._body)).catch(err=>alert(err));
+	  this.territoryService.saveTerritoryDetail(this.territoryDetail).toPromise().then(data=>console.log(data._body)).catch(err=>alert(err));
   }
 }

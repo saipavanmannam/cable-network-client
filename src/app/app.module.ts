@@ -11,7 +11,9 @@ import { ConnectionComponent } from './dish/connection/connection.component';
 import { ConnectionService } from './dish/connection/connection.service';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { Connection } from './dish/connection';
+import { TerritoryDetail } from './dish/territory-detail';
 import { TerritoryComponent } from './dish/territory/territory.component';
+import { TerritoryService } from './dish/territory/territory.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { TerritoryComponent } from './dish/territory/territory.component';
     HttpModule,
 	routes
   ],
-  providers: [ConnectionService,Connection],
+  providers: [ConnectionService,Connection,TerritoryService,TerritoryDetail],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

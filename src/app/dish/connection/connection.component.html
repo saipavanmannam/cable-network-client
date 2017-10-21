@@ -7,6 +7,7 @@
 	<label>Type:</label><select [(ngModel)]="connection.connectionType"><option value="M">Monthly</option><option value="Y">Yearly</option></select><br>
 	<label>Status:</label><select [(ngModel)]="connection.status"><option value="A">Active</option><option value="I">InActive</option></select><br>
 	<label>Initial Deposit:</label><input [(ngModel)]="connection.balance" placeholder="balance"><br>
+	<label>Territory:</label><select [(ngModel)]="connection.territoryDetail"><option *ngFor="let t of territoryDetails" [ngValue]="t">{{t.name}}</option></select><br>
 	<button (click)="saveConnection()">Save</button>
 	
 </div>

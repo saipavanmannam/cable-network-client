@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectionService } from './connection.service';
 import { Connection } from '../connection';
+import { TerritoryDetail } from '../territory-detail';
+import { TerritoryService } from '../territory/territory.service';
 import 'rxjs/add/operator/toPromise';
 @Component({
   selector: 'dish-connection',
@@ -10,9 +12,17 @@ import 'rxjs/add/operator/toPromise';
 export class ConnectionComponent implements OnInit {
 
   constructor(private connService: ConnectionService,
-  				private connection: Connection) { }
+  			  private connection: Connection,
+  			  private terrService: TerritoryService) { }
+  				
+  private territoryDetails: TerritoryDetail[];
 
-  ngOnInit() {  }
+  ngOnInit() {
+		this.getTerritories();  
+    }
+  getTerritories(): void{
+   		this.terrService.getAllTerritotyDetails().toPromise().then(data => this.territoryDetails  =  data.json());
+  };
   
   getConnection(): void{
 	this.connService.getConnection(this.connection.connectionId).toPromise().then(data=>this.connection=data.json());
