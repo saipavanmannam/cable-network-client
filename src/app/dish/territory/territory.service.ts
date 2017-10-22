@@ -9,12 +9,15 @@ import 'rxjs/add/operator/map';
 export class TerritoryService {
   
   constructor(private http: Http) { }
+  public territoryDetails: TerritoryDetail[];
   getTerritoryDetail(territoryId): any {
 	return this.http.get('/dish/get-territory?territoryId='+territoryId);
 	
   };
   
   getAllTerritotyDetails(): any{
+  	if(this.territoryDetails)
+  		return this.territoryDetails;
   	return this.http.get('/dish/get-all-territories');
   };
   

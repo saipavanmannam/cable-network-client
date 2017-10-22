@@ -1,0 +1,30 @@
+<table class="table table-condensed table-bordered data-table">
+  <thead>
+  	<tr>
+  		<th>Id</th>
+  		<th>Name</th>
+		<th>Mobile</th>
+		<th>Address</th>
+		<th>Email</th>
+		<th>Type</th>
+		<th>Status</th>
+		<th>Customer Balance</th>
+		<th>Place</th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <tr *ngFor="let conn of connections" class="data-table-row">
+	  	<td class="data-column column-name">{{conn.connectionId}}</td> 
+	  	<td class="data-column column-name">{{conn.name}}</td>
+	  	<td class="data-column column-name">{{conn.mobile}}</td>
+	  	<td class="data-column column-name">{{conn.address}}</td>
+	  	<td class="data-column column-name">{{conn.email}}</td>
+	  	<td class="data-column column-name">{{conn.connectionType}}</td>
+	  	<td class="data-column column-name">{{conn.status}}</td>
+	  	<td class="data-column column-name">{{conn.balance}}</td>
+	  	<td class="data-column column-name">{{conn.territoryDetail ? conn.territoryDetail.name : "no territory"}}</td>
+	  	<td><button (click)="editConnection(conn)">Edit</button></td>
+	  </tr>
+  </tbody>
+</table>
+

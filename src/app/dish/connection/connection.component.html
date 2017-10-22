@@ -1,3 +1,4 @@
+<a routerLink="get-all-connections">Get All Connections</a>
 <div>
 	<label>ConnectionId:</label><input [(ngModel)]="connection.connectionId" placeholder="connectionId"><br>
 	<label>Name:</label><input [(ngModel)]="connection.name" placeholder="name"><br>
@@ -7,7 +8,7 @@
 	<label>Type:</label><select [(ngModel)]="connection.connectionType"><option value="M">Monthly</option><option value="Y">Yearly</option></select><br>
 	<label>Status:</label><select [(ngModel)]="connection.status"><option value="A">Active</option><option value="I">InActive</option></select><br>
 	<label>Initial Deposit:</label><input [(ngModel)]="connection.balance" placeholder="balance"><br>
-	<label>Territory:</label><select [(ngModel)]="connection.territoryDetail"><option *ngFor="let t of territoryDetails" [ngValue]="t">{{t.name}}</option></select><br>
+	<label>Territory:</label><select [(ngModel)]="connection.territoryDetail"><option *ngFor="let t of territoryDetails" [ngValue]="t" [selected]="connection.territoryDetail && t.territoryId==connection.territoryDetail.territoryId">{{t.name}}</option></select><br>
 	<button (click)="saveConnection()">Save</button>
 	
 </div>

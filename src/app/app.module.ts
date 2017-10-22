@@ -14,13 +14,15 @@ import { Connection } from './dish/connection';
 import { TerritoryDetail } from './dish/territory-detail';
 import { TerritoryComponent } from './dish/territory/territory.component';
 import { TerritoryService } from './dish/territory/territory.service';
+import { GetAllConnectionsComponent } from './dish/get-all-connections/get-all-connections.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnectionComponent,
     DashBoardComponent,
-    TerritoryComponent
+    TerritoryComponent,
+    GetAllConnectionsComponent
   ],
   imports: [
     BrowserModule,

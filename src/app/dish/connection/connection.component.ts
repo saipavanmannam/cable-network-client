@@ -3,6 +3,7 @@ import { ConnectionService } from './connection.service';
 import { Connection } from '../connection';
 import { TerritoryDetail } from '../territory-detail';
 import { TerritoryService } from '../territory/territory.service';
+import { GetAllConnectionsComponent } from '../get-all-connections/get-all-connections.component';
 import 'rxjs/add/operator/toPromise';
 @Component({
   selector: 'dish-connection',
@@ -18,7 +19,13 @@ export class ConnectionComponent implements OnInit {
   private territoryDetails: TerritoryDetail[];
 
   ngOnInit() {
-		this.getTerritories();  
+		this.getTerritories();
+		if(this.connService.connection){
+			this.connection = this.connService.connection;
+		}else{
+			
+		}
+		this.connService.connection = undefined; 
     }
   getTerritories(): void{
    		this.terrService.getAllTerritotyDetails().toPromise().then(data => this.territoryDetails  =  data.json());
